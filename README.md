@@ -63,7 +63,7 @@ At <a href="https://www.live-escape.net/" target="_blank">Live Escape Grenoble</
 * Kivy props
     - teletext with visual effects
     
-You may follow on our <a href="https://github.com/fauresystems?tab=repositories" target="_blank">GitHub repositories</a>, props source code is planned to be published in teay 2020.
+You may follow on our <a href="https://github.com/fauresystems?tab=repositories" target="_blank">GitHub repositories</a>, props source code is planned to be published in year 2020.
 
 
 ## Author
