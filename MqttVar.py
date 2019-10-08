@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-MqttVar.py (version 0.1 initial)
+MqttVar.py
 MIT License (c) Marie Faure
 
 Class to track and publish variable changes.
