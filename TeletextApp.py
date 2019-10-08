@@ -46,13 +46,19 @@ class TeletextApp(GuizeroApp):
 		self._texte = Text(self._gui, "")
 		self._texte.text_color = 'green'
 		self._texte.font = "Helvetica"
-		self._texte.size = "72"
+		self._texte.size = "90"
 		self._texte.height = 1080
 
-		self._texte_p = MqttVar('texte' , str, "", logger = self._logger)
-		self._publishable.append(self._texte_p )
+		#self._texte.repeat(3000, self.publishDataChanges())
+		#self._texte.repeat(30000, self.publishAllData())
+
+		self._texte_p = MqttVar('affichage' , str, "", logger = self._logger)
+		##self._publishable.append(self._texte_p )
 
 		self._texte_p.update(self._texte.value)
+
+		self._lampe_p = MqttVar('lampe' , bool, 0, logger = self._logger)
+		self._publishable.append(self._lampe_p )
 
 		self._sound = Sound(self._logger)
 
@@ -72,30 +78,39 @@ class TeletextApp(GuizeroApp):
 	#__________________________________________________________________
 	def onMessage(self, topic, message):
 		# extend as a virtual method
-		#print(topic, message)
+		print(topic, message)
 		if message in ["app:startup", "app:quit"]:
 			super().onMessage(topic, message)
 		elif message.startswith("afficher:"):
 			text = message[9:]
 			self._texte.value = text
 			self._texte_p.update(self._texte.value)
+			if self._mqttConnected:
+				try:
+					(result, mid) = self._mqttClient.publish(MQTT_DISPLAY_TOPIC, text, qos=MQTT_DEFAULT_QoS, retain=True)
+					self._logger.info(
+						"{0} '{1}' (mid={2}) on {3}".format(_("Program sending message"), message, mid, topic))
+				except Exception as e:
+					self._logger.error(
+						"{0} '{1}' on {2}".format(_("MQTT API : failed to call publish() for"), message, topic))
+					self._logger.debug(e)
 			self.publishMessage(self._mqttOutbox, "DONE " + message)
+			self.publishDataChanges()
 			self._sound.play('media/bell.wav')
-		elif message.startswith("effacer:"):
+		elif message.startswith("effacer"):
 			self._texte.value = ""
 			self._texte_p.update(self._texte.value)
 			self.publishMessage(self._mqttOutbox, "DONE " + message)
+			self.publishDataChanges()
 		else:
 			self.publishMessage(self._mqttOutbox, "OMIT " + message)
 
 	#__________________________________________________________________
 	def publishAllData(self):
-		#self._texte_p.update(self._sound.isPlaying() )
 		super().publishAllData()
 		
 	#__________________________________________________________________
 	def publishDataChanges(self):
-		#self._texte_p.update(self._sound.isPlaying() )
 		super().publishDataChanges()
 
 	# __________________________________________________________________

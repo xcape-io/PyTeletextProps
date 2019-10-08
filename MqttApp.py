@@ -293,7 +293,7 @@ class MqttApp():
             changes = []
             for publishable in self._publishable:
                 change = publishable.change()
-                if change:
+                if isinstance(change, str):
                     changes.append(change)
             if len(changes):
                 data = " ".join(changes)

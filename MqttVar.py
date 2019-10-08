@@ -119,12 +119,12 @@ class MqttVar:
             if abs(self._reference - self._value) > self._precision:
                 return self.__str__()
             else:
-                return ""
+                return None
         else:
             if self._reference != self._value:
                 return self.__str__()
             else:
-                return ""
+                return None
 
     # __________________________________________________________________
     def update(self, value):

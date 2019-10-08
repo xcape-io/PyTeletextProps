@@ -24,4 +24,4 @@ APPLICATION_GUI_NAME = "Teletext"
 
 #__________________________________________________________________
 # Required by TeletextApp
-
+MQTT_DISPLAY_TOPIC = "Room/Demoniak/Props/Raspberry Teletext/display"
