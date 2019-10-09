@@ -59,7 +59,7 @@ It depends on:
 * `Singleton.ini` to ensure one instance of application is running
 * `Sound.py` simple *aplay* wrapper
 
-Use ***TeletextApp*** as a model to create your own connected props if you need simple text display, sound playback and GPIO stuff.
+Use ***TeletextApp*** as a model to create your own connected props if you need simple text display, sound playback. You can also add GPIO stuff.
 
 #### MQTT message protocol:
 > This props has been created for [Live Escape Grenoble](https://www.live-escape.net/) rooms, controlled with Room 2.0 software so MQTT messages published in the props outbox implement the <a href="https://github.com/fauresystems/TeletextProps/blob/master/PROTOCOL.md" target="_blank">Room 2.0 Outbox protocol</a>.
@@ -75,7 +75,7 @@ For more advanced text display (visual effects, True-Type fonts) you may see *Ki
 
 GUI is built with *<a href="https://lawsie.github.io/guizero/" target="_blank">guizero</a>* library. If you don't need display, prefer *Asyncio* props.
 
-Extend this base class to build a connected props which does simple text display, sound playback and GPIO stuff.
+Extend this base class to build a connected props which does simple text display, sound playback. Optionally you can GPIO stuff.
 
 You might not modify `GuizeroApp.py` file.
 

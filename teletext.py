@@ -36,15 +36,6 @@ except SingletonException:
 except BaseException as e:
     print(e)
 
-# prevent from running on Element14 PiDesktop
-if os.path.isfile('/proc/driver/rtc'):
-    print("Don't run Relay on Element14 PiDesktop (GPIO overlapping may shut down the Pi)")
-    sys.exit(1)
-
-if not os.path.isfile('/opt/vc/include/bcm_host.h'):
-    print("Using RPi.GPIO requires a Raspberry Pi")
-    sys.exit(1)
-
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 # translation
