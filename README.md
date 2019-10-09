@@ -61,6 +61,10 @@ It depends on:
 
 Use ***TeletextApp*** as a model to create your own connected props if you need simple text display, sound playback. You can also add GPIO stuff.
 
+About `create-teletextprops-tgz.bat`:
+* install <a href="https://www.7-zip.org/" target="_blank">7-Zip</a> on your Windows desktop
+* run `create-teletextprops-tgz.bat` to archive your work
+
 #### MQTT message protocol:
 > This props has been created for [Live Escape Grenoble](https://www.live-escape.net/) rooms, controlled with Room 2.0 software so MQTT messages published in the props outbox implement the <a href="https://github.com/fauresystems/TeletextProps/blob/master/PROTOCOL.md" target="_blank">Room 2.0 Outbox protocol</a>.
 
