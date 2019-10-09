@@ -8,7 +8,7 @@ Room 2.0 Outbox protocol is a minimal implementation to structure messages sent 
 However props may use MQTT topics in any way, for example [Teletext Props](https://github.com/fauresystems/TeletextProps) publishes its displayed text as a *retained* message in a dedicated MQTT topic.
 
 ## Outbox
-Room 2.0 Outbox protocol defines messages sent in props outbox, which is a MQTTn topic structured like this:
+Room 2.0 Outbox protocol defines messages sent in props outbox, which is a MQTT topic structured like this:
 ```python
 Room/Name of the room/Props/Name of the props/outbox
 ```
@@ -18,7 +18,7 @@ Room/Demoniak/Props/Raspberry Teletext/outbox
 ```
 
 ## Inbox
-The props also subscribes to its inbox topic to listen to command such as actuators:
+The props also subscribes to its dedicated inbox topic to listen to command such as actuators:
 ```python
 Room/Name of the room/Props/Name of the props/inbox
 ```
@@ -43,7 +43,7 @@ The protocol has been defined to be **human readable** (so debugging Escape Room
 
 ## Author
 
-**Marie FAURE** (Oct 1th, 2019)
+**Marie FAURE** (Oct 9th, 2019)
 * company: FAURE SYSTEMS SAS
 * mail: *dev at faure dot systems*
 * github: <a href="https://github.com/fauresystems?tab=repositories" target="_blank">fauresystems</a>
