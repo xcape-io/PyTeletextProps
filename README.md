@@ -22,6 +22,26 @@ app-outbox = Room/Demoniak/Props/Raspberry Teletext/outbox
 mqtt-sub-room-scenario = Room/Demoniak/Control/game:scenario
 ``` 
 
+
+## Usage
+Start `teletext.py` script in `rc.local`:
+
+```python
+usage: python3 teletext.py [-h] [-s SERVER] [-p PORT] [-d] [-l LOGGER]
+
+optional arguments:
+ -h, --help   show this help message and exit
+ -s SERVER, --server SERVER
+      change MQTT server host
+ -p PORT, --port PORT change MQTT server port
+ -d, --debug   set DEBUG log level
+ -l LOGGER, --logger LOGGER
+      use logging config file
+```
+
+To switch MQTT broker, kill the program and start again with new arguments.
+
+
 ## Understanding the code
 
 ### *TeletextApp*
