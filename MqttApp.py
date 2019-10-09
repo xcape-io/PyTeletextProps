@@ -63,11 +63,6 @@ class MqttApp():
         self._mqttServerPort = MQTT_DEFAULT_PORT
         self._publishable = []
 
-        self._ipaddress = os.popen("/sbin/ifconfig eth0 \
-			| grep 'inet ' \
-			| awk '{print $2}' \
-			| awk '{print $1}'").read().rstrip('\r\n')
-
         ini = 'definitions.ini'
         if os.path.isfile(ini):
             self.config = configparser.ConfigParser()
@@ -167,7 +162,7 @@ class MqttApp():
             self._logger.info(_("Program connected to MQTT server"))
             if self._mqttOutbox:
                 try:
-                    message = "CONNECTED FROM {}".format(self._ipaddress)
+                    message = "CONNECTED"
                     (result, mid) = self._mqttClient.publish(self._mqttOutbox, message, qos=MQTT_DEFAULT_QoS,
                                                              retain=True)
                     self._logger.info("{0} '{1}' (mid={2}) on {3}".format(_("Program sending message"), message, mid,
@@ -321,8 +316,7 @@ class MqttApp():
     def start(self):
         if self._mqttOutbox:
             try:
-                self._mqttClient.will_set(self._mqttOutbox, payload="DISCONNECTED FROM {}".format(self._ipaddress),
-                                          qos=1, retain=True)
+                self._mqttClient.will_set(self._mqttOutbox, payload="DISCONNECTED", qos=1, retain=True)
             except Exception as e:
                 self._logger.error(_("MQTT API : failed to call will_set()"))
                 self._logger.debug(e)

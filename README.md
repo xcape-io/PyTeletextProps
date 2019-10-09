@@ -41,6 +41,12 @@ It depends on:
 
 Use ***TeletextApp*** as a model to create your own connected props if you need simple text display, sound playback and GPIO stuff.
 
+#### MQTT message protocol:
+> This props has been created for [Live Escape Grenoble](https://www.live-escape.net/) rooms, controlled with Room 2.0 software so MQTT messages published in the props outbox implement the <a href="https://github.com/fauresystems/TeletextProps/blob/master/PROTOCOL.md" target="_blank">Room 2.0 Outbox protocol</a>.
+
+#### IDE for hacking `TeletextApp.py`:
+> You can open a PyCharm Professional project to hack the code remotely, thanks to `.idea` folder. Or if you prefer to the code hack directly on the Raspberry, we suggest <a href="https://eric-ide.python-projects.org/" target="_blank">Eric6 IDE</a>. 
+
 
 ### *GuizeroApp* base class
 *TeletextApp* extends *GuizeroApp*, python base app for Raspberry connected props which require simple text display. 
