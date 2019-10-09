@@ -316,6 +316,7 @@ class MqttApp():
     def start(self):
         if self._mqttOutbox:
             try:
+                # will mist be set before connection
                 self._mqttClient.will_set(self._mqttOutbox, payload="DISCONNECTED", qos=1, retain=True)
             except Exception as e:
                 self._logger.error(_("MQTT API : failed to call will_set()"))

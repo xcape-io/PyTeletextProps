@@ -31,7 +31,7 @@ class TeletextApp(GuizeroApp):
 
 	#__________________________________________________________________
 	def __init__(self, argv, client, debugging_mqtt=False):
-		
+
 		super().__init__(argv, client, debugging_mqtt)
 
 		self.logger.info(_("Props started"))
@@ -43,7 +43,7 @@ class TeletextApp(GuizeroApp):
 		self._gui.bg = 'black'
 		self._gui.tk.config(cursor="none")
 
-		self._texte = Text(self._gui, "")
+		self._texte = Text(self._gui, "")  # "" value is translated to "-" for MQTT_DISPLAY_TOPIC
 		self._texte.text_color = 'green'
 		self._texte.font = "Helvetica"
 		self._texte.size = "90"
@@ -51,11 +51,6 @@ class TeletextApp(GuizeroApp):
 
 		#self._texte.repeat(3000, self.publishDataChanges())
 		#self._texte.repeat(30000, self.publishAllData())
-
-		self._texte_p = MqttVar('affichage' , str, "", logger = self._logger)
-		##self._publishable.append(self._texte_p )
-
-		self._texte_p.update(self._texte.value)
 
 		self._lampe_p = MqttVar('lampe' , bool, 0, logger = self._logger)
 		self._publishable.append(self._lampe_p )
@@ -65,10 +60,28 @@ class TeletextApp(GuizeroApp):
 		os.system("amixer cset numid=3 1") # audio jack
 		os.system("amixer set 'PCM' -- -1000")
 
+		if self._mqttConnected:
+			try:
+				(result, mid) = self._mqttClient.publish(MQTT_DISPLAY_TOPIC, "-", qos=MQTT_DEFAULT_QoS, retain=True)
+			except Exception as e:
+				self._logger.error(
+					"{0} '{1}' on {2}".format(_("MQTT API : failed to call publish() for"), "-", MQTT_DISPLAY_TOPIC))
+				self._logger.debug(e)
+
 	# __________________________________________________________________
 	def onConnect(self, client, userdata, flags, rc):
 		# extend as a virtual method
-		pass
+		# display message will '-' for black screen
+		if hasattr(self, '_texte'):
+			text = self._texte.value
+			if not text:
+				text = "-"
+			try:
+				(result, mid) = self._mqttClient.publish(MQTT_DISPLAY_TOPIC, text, qos=MQTT_DEFAULT_QoS, retain=True)
+			except Exception as e:
+				self._logger.error(
+					"{0} '{1}' on {2}".format(_("MQTT API : failed to call publish() for"), text, MQTT_DISPLAY_TOPIC))
+				self._logger.debug(e)
 
 	#__________________________________________________________________
 	def onDisconnect(self, client, userdata, rc):
@@ -84,22 +97,29 @@ class TeletextApp(GuizeroApp):
 		elif message.startswith("afficher:"):
 			text = message[9:]
 			self._texte.value = text
-			self._texte_p.update(self._texte.value)
 			if self._mqttConnected:
 				try:
 					(result, mid) = self._mqttClient.publish(MQTT_DISPLAY_TOPIC, text, qos=MQTT_DEFAULT_QoS, retain=True)
 					self._logger.info(
-						"{0} '{1}' (mid={2}) on {3}".format(_("Program sending message"), message, mid, topic))
+						"{0} '{1}' (mid={2}) on {3}".format(_("Program sending message"), message, mid, MQTT_DISPLAY_TOPIC))
 				except Exception as e:
 					self._logger.error(
-						"{0} '{1}' on {2}".format(_("MQTT API : failed to call publish() for"), message, topic))
+						"{0} '{1}' on {2}".format(_("MQTT API : failed to call publish() for"), message, MQTT_DISPLAY_TOPIC))
 					self._logger.debug(e)
 			self.publishMessage(self._mqttOutbox, "DONE " + message)
 			self.publishDataChanges()
 			self._sound.play('media/bell.wav')
 		elif message.startswith("effacer"):
 			self._texte.value = ""
-			self._texte_p.update(self._texte.value)
+			if self._mqttConnected:
+				try:
+					(result, mid) = self._mqttClient.publish(MQTT_DISPLAY_TOPIC, "-", qos=MQTT_DEFAULT_QoS, retain=True)
+					self._logger.info(
+						"{0} '{1}' (mid={2}) on {3}".format(_("Program sending message"), message, mid, MQTT_DISPLAY_TOPIC))
+				except Exception as e:
+					self._logger.error(
+						"{0} '{1}' on {2}".format(_("MQTT API : failed to call publish() for"), message, MQTT_DISPLAY_TOPIC))
+					self._logger.debug(e)
 			self.publishMessage(self._mqttOutbox, "DONE " + message)
 			self.publishDataChanges()
 		else:
