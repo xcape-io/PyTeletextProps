@@ -47,7 +47,7 @@ Use ***TeletextApp*** as a model to create your own connected props if you need 
 
 For more advanced text display (visual effects, True-Type fonts) you may see *Kivi* props below such as TelefxProps.
 
-GUI is built with *[guizero](https://lawsie.github.io/guizero/)* library. If you don't need display, prefer *Asyncio* props.
+GUI is built with *<a href="https://lawsie.github.io/guizero/" target="_blank">guizero</a>* library. If you don't need display, prefer *Asyncio* props.
 
 Extend this base class to build a connected props which does simple text display, sound playback and GPIO stuff.
 
