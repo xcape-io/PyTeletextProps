@@ -26,7 +26,7 @@ mqtt-sub-room-scenario = Room/Demoniak/Control/game:scenario
 ## Usage
 Start `teletext.py` script in `rc.local`:
 
-```python
+```bash
 usage: python3 teletext.py [-h] [-s SERVER] [-p PORT] [-d] [-l LOGGER]
 
 optional arguments:
