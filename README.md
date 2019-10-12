@@ -13,6 +13,11 @@ You can use Teletext Props as is or you can hack it to create your own connected
 ## Installation
 Download `TeletextProps-master.zip` from this GitHub repository and unflate it on your Raspberry Pi.
 
+Install dependencies
+```bash
+pip3 install -r requirements.txt
+```
+
 Edit `definitions.ini` to set MQTT topics for your Escape Room:
 ```python
 [mqtt]
