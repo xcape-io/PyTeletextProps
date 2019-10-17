@@ -20,7 +20,7 @@ except:
 
 from GuizeroApp import GuizeroApp
 
-import os, sys
+import os, platform, sys
 from guizero import Text
 from Sound import Sound
 
@@ -34,20 +34,30 @@ class TeletextApp(GuizeroApp):
 
         self.logger.info(_("Props started"))
 
-        self._gui.full_screen = True  # exit fullscreen with Esc (so for props without a keyboard)
+        if platform.system() != 'Windows':
+            self._gui.full_screen = True  # exit fullscreen with Esc (so for props without a keyboard)
+        else:
+            self._gui.width = 592
+            self._gui.height = 333
+
         self._gui.bg = 'black'
         self._gui.tk.config(cursor="none")
 
         self._texte = Text(self._gui, "")  # "" value is translated to "-" for MQTT_DISPLAY_TOPIC
+        self._texte.height = 1080
         self._texte.text_color = 'green'
         self._texte.font = "Helvetica"
-        self._texte.size = "90"
-        self._texte.height = 1080
+
+        if platform.system() != 'Windows':
+            self._texte.size = "90"
+        else:
+            self._texte.size = "28"
 
         self._sound = Sound(self._logger)
 
-        os.system("amixer cset numid=3 1")  # audio jack
-        os.system("amixer set 'PCM' -- -1000")
+        if platform.system() != 'Windows':
+            os.system("amixer cset numid=3 1")  # audio jack
+            os.system("amixer set 'PCM' -- -1000")
 
         if self._mqttConnected:
             try:
