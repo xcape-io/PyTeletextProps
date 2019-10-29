@@ -1,7 +1,7 @@
 ﻿# Teletext connected props
 ***Display messages with Raspberry connected props for Escape Room.***
 
-[Teletext Props](https://github.com/fauresystems/TeletextProps) is pure python application to build a Raspberry connected props for Escape Room. 
+[Teletext Props](https://github.com/fauresystems/PyTeletextProps) is pure python application to build a Raspberry connected props for Escape Room. 
 
 This props listen to MQTT messages to display a text on a display monitor, ring a bell and turn on a light. Messages and commands are sent remotely from anywhere (no more need of long HDMI cables in Escape Rooms).
 
@@ -11,7 +11,7 @@ You can use Teletext Props as is or you can hack it to create your own connected
 
 
 ## Installation
-Download `TeletextProps-master.zip` from this GitHub repository and unflate it on your Raspberry Pi.
+Download `PyTeletextProps-master.zip` from this GitHub repository and unflate it on your Raspberry Pi.
 
 Install dependencies
 ```bash
