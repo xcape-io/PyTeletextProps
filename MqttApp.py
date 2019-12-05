@@ -80,7 +80,7 @@ class MqttApp():
 
         if os.path.isfile(CONFIG_FILE):
             with open(CONFIG_FILE, 'r') as conffile:
-                self._config = yaml.load(conffile)
+                self._config = yaml.load(conffile, Loader=yaml.SafeLoader)
         else:
             self._config = {}
 
