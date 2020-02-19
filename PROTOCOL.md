@@ -14,7 +14,7 @@ Room/Name of the room/Props/Name of the props/outbox
 ```
 For example:
 ```python
-Room/Demoniak/Props/Raspberry Teletext/outbox
+Room/My room/Props/Raspberry Teletext/outbox
 ```
 
 ## Inbox
@@ -24,7 +24,7 @@ Room/Name of the room/Props/Name of the props/inbox
 ```
 For example:
 ```python
-Room/Demoniak/Props/Raspberry Teletext/inbox
+Room/My room/Props/Raspberry Teletext/inbox
 ```
 
 ## Protocol for outbox

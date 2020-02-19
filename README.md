@@ -22,9 +22,9 @@ Edit `definitions.ini` to set MQTT topics for your Escape Room:
 ```python
 [mqtt]
 ; mqtt-sub-* and app-inbox topics are subscribed by MqttApp
-app-inbox = Room/Demoniak/Props/Raspberry Teletext/inbox
-app-outbox = Room/Demoniak/Props/Raspberry Teletext/outbox
-mqtt-sub-room-scenario = Room/Demoniak/Control/game:scenario
+app-inbox = Room/My room/Props/Raspberry Teletext/inbox
+app-outbox = Room/My room/Props/Raspberry Teletext/outbox
+mqtt-sub-room-scenario = Room/My room/Control/game:scenario
 ``` 
 
 
