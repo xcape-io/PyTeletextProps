@@ -32,7 +32,7 @@ The protocol has been defined to be **human readable** (so debugging Escape Room
 
 * `CONNECTED` is sent when the props is connected to the MQTT broker
 * `DISCONNECTED` is set as the MQTT *will* for the outbox topic
-* `DATA var1=value1 var2=value2` to report sensors or puzzle game state
+* `DATA var1=value1 var2=value2` to report sensors or challenge state
 * `REQU command` to send a request to another props
 * `PROG command` to send a program request to the Escape Game controller (**Room** software)
 * `DONE command` to report command has been received and done
