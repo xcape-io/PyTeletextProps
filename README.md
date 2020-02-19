@@ -5,7 +5,7 @@
 
 This props listen to MQTT messages to display a text on a display monitor, ring a bell and turn on a light. Messages and commands are sent remotely from anywhere (no more need of long HDMI cables in Escape Rooms).
 
-Created for [Live Escape Grenoble](https://www.live-escape.net/) rooms, controlled with Room 2.0 software, this props can be controlled with [Teletext Plugin](https://github.com/fauresystems/TeletextPlugin) or any application able to publish MQTT messages.
+Created for [Live Escape Grenoble](https://www.live-escape.net/) rooms, controlled with **Room** software, this props can be controlled with [Teletext Plugin](https://github.com/fauresystems/TeletextPlugin) or any application able to publish MQTT messages.
 
 You can use Teletext Props as is or you can hack it to create your own connected props, you just have to hack the code in `TeletextApp.py` file.
 
@@ -71,7 +71,7 @@ About `create-teletextprops-tgz.bat`:
 * run `create-teletextprops-tgz.bat` to archive your work
 
 #### MQTT message protocol:
-> This props has been created for [Live Escape Grenoble](https://www.live-escape.net/) rooms, controlled with Room 2.0 software so MQTT messages published in the props outbox implement the <a href="https://github.com/fauresystems/TeletextProps/blob/master/PROTOCOL.md" target="_blank">Room 2.0 Outbox protocol</a>.
+> This props has been created for [Live Escape Grenoble](https://www.live-escape.net/) rooms, controlled with **Room** software so MQTT messages published in the props outbox implement the <a href="https://github.com/fauresystems/TeletextProps/blob/master/PROTOCOL.md" target="_blank">Room 2.0 Outbox protocol</a>.
 
 #### IDE for hacking `TeletextApp.py`:
 > You can open a PyCharm Professional project to hack the code remotely, thanks to `.idea` folder. Or if you prefer to the code hack directly on the Raspberry, we suggest <a href="https://eric-ide.python-projects.org/" target="_blank">Eric6 IDE</a>. 
