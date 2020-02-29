@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="pi@192.168.1.42:22">
+  <component name="PublishConfigData" uploadOnCheckin="0a3ea2cc-ea93-469e-8c09-6f8ea54a97eb">
     <serverData>
       <paths name="pi@192.168.1.42:22">
         <serverdata>
           <mappings>
-            <mapping deploy="/home/pi/Room/TeletextProps" local="$PROJECT_DIR$" />
+            <mapping deploy="/home/pi/Room/Props/PyTeletextProps" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
     </serverData>
-    <option name="myAutoUpload" value="ALWAYS" />
+    <option name="myUploadOnCheckinName" value="pi@192.168.1.42:22" />
   </component>
 </project>

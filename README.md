@@ -5,9 +5,13 @@
 
 This props listen to MQTT messages to display a text on a display monitor, ring a bell and turn on a light. Messages and commands are sent remotely from anywhere (no more need of long HDMI cables in Escape Rooms).
 
-Created for [Live Escape Grenoble](https://www.live-escape.net/) rooms, controlled with **Room** software, this props can be controlled with [Teletext Plugin](https://github.com/fauresystems/TeletextPlugin) or any application able to publish MQTT messages.
+This props is inspired from a Water Well props created for [Live Escape Grenoble](https://www.live-escape.net/) rooms, controlled with **Room** software, this props can be controlled with [Teletext Plugin](https://github.com/fauresystems/TeletextPlugin) or any application able to publish MQTT messages.
 
-You can use Teletext Props as is or you can hack it to create your own connected props, you just have to hack the code in `TeletextApp.py` file.
+The Water Well props was based on <a href="https://kivy.org/" target="_blank">Python Kivi</a> to get water waves visual effects. 
+
+This props based on <a href="https://lawsie.github.io/guizero/start/" target="_blank">Guizero</a> is a very good start to code a very first GUI props on Raspberry. Create your own connected props, you just have to hack the code in `TeletextApp.py` file.
+
+You will find a <a href="https://xcape.io/public/documentation/en/room/AddaconnectedpropsTeletext.html" target="_blank">detailed installation help in the Room manual</a>.
 
 
 ## Installation
@@ -29,7 +33,7 @@ mqtt-sub-room-scenario = Room/My room/Control/game:scenario
 
 
 ## Usage
-Start `teletext.py` script in `rc.local`:
+Start `teletext.py` script:
 
 ```bash
 usage: python3 teletext.py [-h] [-s SERVER] [-p PORT] [-d] [-l LOGGER]
