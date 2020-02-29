@@ -20,7 +20,7 @@ except:
 
 from GuizeroApp import GuizeroApp
 
-import os, platform, sys
+import os, platform, sys, logging
 from guizero import Text
 from Sound import Sound
 
@@ -35,7 +35,8 @@ class TeletextApp(GuizeroApp):
         self.logger.info(_("Props started"))
 
         if platform.system() != 'Windows':
-            self._gui.full_screen = True  # exit fullscreen with Esc (so for props without a keyboard)
+            if self.logger.level != logging.DEBUG:
+                self._gui.full_screen = True  # exit fullscreen with Esc (so for props without a keyboard)
         else:
             self._gui.width = 592
             self._gui.height = 333

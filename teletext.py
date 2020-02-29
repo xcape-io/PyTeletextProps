@@ -6,6 +6,9 @@ MIT License (c) Marie Faure <dev at faure dot systems>
 
 Displays message received from MQTT server in fullscreen on main monitor and play a sound.
 
+To switch MQTT broker, kill the program and start again with new arguments.
+Use -d option to start in windowed mode instead of fullscreen.
+
 usage: python3 teletext.py [-h] [-s SERVER] [-p PORT] [-d] [-l LOGGER]
 
 optional arguments:

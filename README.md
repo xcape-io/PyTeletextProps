@@ -68,7 +68,7 @@ Use ***TeletextApp*** as a model to create your own connected props if you need 
 
 About `create-teletextprops-tgz.bat`:
 * install <a href="https://www.7-zip.org/" target="_blank">7-Zip</a> on your Windows desktop
-* run `create-teletextprops-tgz.bat` to archive your work
+* run `create-teletextprops-tgz.bat` to archive versions of your work
 
 #### MQTT message protocol:
 > This props has been created for [Live Escape Grenoble](https://www.live-escape.net/) rooms, controlled with **Room** software so MQTT messages published in the props outbox implement the <a href="https://github.com/fauresystems/TeletextProps/blob/master/PROTOCOL.md" target="_blank">Room 2.0 Outbox protocol</a>.
@@ -106,7 +106,7 @@ We have choosen MQTT QoS 1 as default (see *constants.py*).
 
 
 ## Other python frameworks for connected props
-At <a href="https://www.live-escape.net/" target="_blank">Live Escape Grenoble</a> we engineered connected props with several frameworks for many different needs:
+At <a href="https://faure.systems/" target="_blank">Faure Systems</a> we engineered connected props with several frameworks for many different needs:
 
 * *Asyncio* props
     - game automation
@@ -133,4 +133,4 @@ You may follow on our <a href="https://github.com/fauresystems?tab=repositories"
 * company: FAURE SYSTEMS SAS
 * mail: *dev at faure dot systems*
 * github: <a href="https://github.com/fauresystems?tab=repositories" target="_blank">fauresystems</a>
-* web: <a href="https://www.live-escape.net/" target="_blank">Live Escape Grenoble</a>
+* web: <a href="https://faure.systems/" target="_blank">Faure Systems</a>
