@@ -11,7 +11,7 @@ The Water Well props was based on <a href="https://kivy.org/" target="_blank">Py
 
 This props based on <a href="https://lawsie.github.io/guizero/start/" target="_blank">Guizero</a> is a very good start to code a very first GUI props on Raspberry. Create your own connected props, you just have to hack the code in `TeletextApp.py` file.
 
-You will find a <a href="https://xcape.io/public/documentation/en/room/AddaconnectedpropsTeletext.html" target="_blank">detailed installation help in the Room manual</a>.
+You will find <a href="https://xcape.io/public/documentation/en/room/AddaconnectedpropsTeletext.html" target="_blank">detailed installation help in the Room manual</a>.
 
 
 ## Installation
@@ -75,7 +75,7 @@ About `create-teletextprops-tgz.bat`:
 * run `create-teletextprops-tgz.bat` to archive versions of your work
 
 #### MQTT message protocol:
-> This props has been created for [Live Escape Grenoble](https://www.live-escape.net/) rooms, controlled with **Room** software so MQTT messages published in the props outbox implement the <a href="https://github.com/fauresystems/TeletextProps/blob/master/PROTOCOL.md" target="_blank">Room 2.0 Outbox protocol</a>.
+> This props has been created for [Live Escape Grenoble](https://www.live-escape.net/) rooms, controlled with **Room** software so MQTT messages published in the props outbox implement the <a href="https://github.com/fauresystems/TeletextProps/blob/master/PROTOCOL.md" target="_blank">Room Outbox protocol</a>.
 
 #### IDE for hacking `TeletextApp.py`:
 > You can open a PyCharm Professional project to hack the code remotely, thanks to `.idea` folder. Or if you prefer to the code hack directly on the Raspberry, we suggest <a href="https://eric-ide.python-projects.org/" target="_blank">Eric6 IDE</a>. 
