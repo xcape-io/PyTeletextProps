@@ -84,11 +84,6 @@ class TeletextApp(GuizeroApp):
                 self._logger.debug(e)
 
     # __________________________________________________________________
-    def onDisconnect(self, client, userdata, rc):
-        # extend as a virtual method
-        pass
-
-    # __________________________________________________________________
     def onMessage(self, topic, message):
         # extend as a virtual method
         print(topic, message)
