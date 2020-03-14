@@ -38,6 +38,8 @@ class GuizeroApp(MqttApp):
         if platform.system() != 'Windows':
             signal.signal(signal.SIGUSR1, self.receiveSignal)
 
+        self._gui.tk.after(500, self.poll)
+
     # __________________________________________________________________
     def loop(self):
         # guizero loop
@@ -69,6 +71,11 @@ class GuizeroApp(MqttApp):
             self.publishMessage(self._mqttOutbox, "OMIT " + message)
 
     # __________________________________________________________________
+    def poll(self):
+        # required for Tkinter tn cathc signal quickly
+        self._gui.tk.after(500, self.poll)
+
+    # __________________________________________________________________
     def quit(self):
         self._gui.exit_full_screen()
         self._gui.destroy()
@@ -82,7 +89,6 @@ class GuizeroApp(MqttApp):
 
     # __________________________________________________________________
     def receiveSignal(self, signalNumber, frame):
-        print('############# signal', signalNumber)
         if signalNumber == signal.SIGUSR1:
             self.relaunch()
 
