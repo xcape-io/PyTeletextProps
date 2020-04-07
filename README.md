@@ -1,17 +1,11 @@
-﻿# Teletext connected props
-***Display messages with Raspberry connected props for Escape Room.***
+﻿# Teletext props
+***Display messages in the Escape Room with a Raspberry Pi.***
 
-[Teletext Props](https://github.com/fauresystems/PyTeletextProps) is pure python application to build a Raspberry connected props for Escape Room. 
+This props listens to MQTT messages and then displays the text on an HDMI display, rings a bell and turns on a light for 3 seconds.
 
-This props listen to MQTT messages to display a text on a display monitor, ring a bell and turn on a light. Messages and commands are sent remotely from anywhere (no more need of long HDMI cables in Escape Rooms).
+Messages are sent by the game master with the [Teletext Plugin](https://github.com/fauresystems/TeletextPlugin) or any application able to publish MQTT messages.
 
-This props is inspired from a Water Well props created for [Live Escape Grenoble](https://www.live-escape.net/) rooms, controlled with **Room** software, this props can be controlled with [Teletext Plugin](https://github.com/fauresystems/TeletextPlugin) or any application able to publish MQTT messages.
-
-The Water Well props was based on <a href="https://kivy.org/" target="_blank">Python Kivi</a> to get water waves visual effects. 
-
-This props based on <a href="https://lawsie.github.io/guizero/start/" target="_blank">Guizero</a> is a very good start to code a very first GUI props on Raspberry. Create your own connected props, you just have to hack the code in `TeletextApp.py` file.
-
-You will find <a href="https://xcape.io/public/documentation/en/room/AddaRaspberrypropsTeletext.html" target="_blank">detailed installation help in the Room manual</a>.
+The [Teletext Plugin](https://github.com/fauresystems/TeletextPlugin) can be used as a standalone applet, without the need of <a href="https://xcape.io/go/room" target="_blank">Room software</a>. If you use <a href="https://xcape.io/go/room" target="_blank">Room software</a>, you will find <a href="https://xcape.io/public/documentation/en/room/AddaRaspberrypropsTeletext.html" target="_blank">detailed installation help in the Room manual</a>.
 
 
 ## Installation
