@@ -1,6 +1,8 @@
 ﻿# Teletext props
 ***Display messages in the Escape Room with a Raspberry Pi.***
 
+<img src="warning.png" alt="Smiley face" height="75" width="75" align="middle"> Discontinued, prefer [PyTeletexProp in PyProps library](https://github.com/xcape-io/PyProps/tree/master/GuizeroProp/PyTeletextProp)
+
 This props listens to MQTT messages and then displays the text on an HDMI display, rings a bell and turns on a light for 3 seconds.
 
 Messages are sent by the game master with the [Teletext Plugin](https://github.com/fauresystems/TeletextPlugin) or any application able to publish MQTT messages.
