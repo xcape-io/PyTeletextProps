@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 MqttVar.py
-MIT License (c) Marie Faure
+MIT License (c) Faure Systems
 
 Class to track and publish variable changes.
 """

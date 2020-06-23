@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 teletext.py
-MIT License (c) Marie Faure <dev at faure dot systems>
+MIT License (c) Faure Systems <dev at faure dot systems>
 
 Displays message received from MQTT server in fullscreen on main monitor and play a sound.
 
